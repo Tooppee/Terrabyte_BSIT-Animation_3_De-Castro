@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Works</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+      *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Full viewport height */
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+    }
+    .about-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+    }
+    /* Works Section */
+    .works-gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 2rem;
+      scroll-behavior: smooth;
+    }
+
+    .work-item {
+      flex: 0 0 auto;
+      width: 300px;
+      height: 200px;
+      position: relative;
+      cursor: pointer;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .work-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .work-item:hover video {
+      transform: scale(1.1); /* Zoom effect */
+    }
+
+    .work-item video:not(:hover) {
+      filter: brightness(0.7); /* Darker when not hovered */
+    }
+    /* Ensure video plays/pauses on hover */
+    .work-item:hover video {
+      filter: brightness(1); /* Normal brightness on hover */
+    }
+    html {
+    scroll-behavior: smooth;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>My Works</h1>
+    <p>A showcase of my animations and designs</p>
+
+  </section>
+
+  <!-- Horizontal Scrolling Works Gallery -->
+  <section id="works-section" class="works-gallery">
+    <!-- Work Item with Video -->
+    <div class="work-item" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-src="Pictures/vid_1.mp4">
+      <video muted loop>
+        <source src="Pictures/vid_1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="work-item" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-src="Pictures/vid_2.mp4">
+      <video muted loop>
+        <source src="Pictures/vid_2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="work-item" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-src="Pictures/vid_3.mov">
+      <video muted loop>
+        <source src="Pictures/vid_3.mov" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+  <!-- About Section -->
+<div class="about-section" style="background-color: #222; color: #fff; padding: 50px 50px;">
+  <div class="container">
+      <h2 class="text-center">About Me</h2>
+      <p class="text-center" style="font-size: 1rem; max-width: 800px; margin: auto;">
+          I am a passionate animation student dedicated to storytelling through visual media. 
+          My work revolves around creativity, innovation, and pushing the boundaries of what is 
+          possible in the world of animation. With a deep love for bringing 
+          characters and narratives to life, I constantly strive to refine 
+          my skills and tell meaningful stories that resonate with audiences.
+           My journey in animation is only just beginning, and I am excited to share my vision 
+           with the world.
+      </p>
+  </div>
+</div>
+
+
+  <!-- Video Modal -->
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <video id="modalVideo" controls autoplay style="width: 100%; height: auto;"></video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Add event listener for video modal
+    const modal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    const workItems = document.querySelectorAll('.work-item');
+
+    workItems.forEach(item => {
+  // Play video on hover
+  const video = item.querySelector('video');
+  item.addEventListener('mouseenter', () => video.play());
+  item.addEventListener('mouseleave', () => video.pause());
+
+  // Open modal and set video source on click
+  item.addEventListener('click', function () {
+    const videoSrc = this.getAttribute('data-video-src');
+    if (videoSrc) {
+      modalVideo.src = videoSrc; // Set modal video source
+      modalVideo.play();
+    } else {
+      console.error("Video source not found!");
+    }
+  });
+});
+
+// Clear video source when modal closes
+modal.addEventListener('hidden.bs.modal', () => {
+  modalVideo.pause();
+  modalVideo.src = ''; // Clear source
+});
+  </script>
+</body>
+</html>
