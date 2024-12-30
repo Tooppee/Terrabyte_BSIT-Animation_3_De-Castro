@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #F5F5E9;
+}
+.navbar {
+    padding-top: 20px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.navbar-brand {
+    padding-left: 50px;
+}
+.nav-item {
+    padding-right: 50px;
+}
+.nav-link {
+    color: black;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 24.61px;
+}
+.nav-link2 {
+    color: black;
+    display: flex;
+    align-items: center;
+}
+.nav-link2:hover, .nav-link:hover {
+    color: #FD4D02;
+}
+.btn {
+    background-color: #FC703C;
+    border: none;
+    color: white;
+}
+.btn:hover {
+    background-color: #FD4D02;
+    border: none;
+    color: white;
+}
+/* Disabled button state */
+.btn.disabled, .btn[disabled] {
+    background-color: #d6d6d6; /* Light gray for a disabled look */
+    color: #7a7a7a; /* Gray text color */
+    border: none; /* No border */
+    pointer-events: none; /* Disable pointer events */
+    opacity: 0.6; /* Make it slightly transparent */
+    cursor: not-allowed; /* Show 'not-allowed' cursor on hover */
+}
+
+/* Optional: Add hover effect for disabled state (though it's non-interactive) */
+.btn.disabled:hover, .btn[disabled]:hover {
+    background-color: #d6d6d6;
+    color: #7a7a7a;
+}
+.footer-1 {
+    background-color: #262626;
+}
+.footer-1 .mb-3 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 25px;
+}
+.footer-1 .list-unstyled {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #F4F3E6;
+    padding-bottom: 10%;
+}
+@media (max-width: 768px) {
+    .footer-1 .mb-3 {
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
+@media (max-width: 768px) {
+    .footer-1 .list-unstyled {
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
+@media (max-width: 576px) {
+    .footer-1 .mb-3 {
+        font-size: 18px;
+        line-height: 20px;
+        padding-left: 20px;
+    }
+    .footer-1 .list-unstyled {
+        font-size: 16px;
+        line-height: 15px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+}
+@media (max-width: 576px) {
+    .footer-1 .copyright {
+        padding-left: 20px;
+    }
+}
+.footer-1 .policy {
+    padding-left: 50%;
+}
+@media (max-width: 768px) {
+    .footer-1 .policy {
+        padding-left: 0;
+        padding-right: 20px;
+    }
+}
+@media (max-width: 576px) {
+    .footer-1 .policy {
+        padding-left: 0;
+        padding-right: 20px;
+    }
+}
+.footer-2 {
+    background-color: #F4F3E6;
+}
+.footer-2 .list-unstyled {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 25px;
+    color: black;
+    padding-bottom: 10%;
+}
